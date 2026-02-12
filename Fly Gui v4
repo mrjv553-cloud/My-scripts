@@ -1,0 +1,271 @@
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local PlayerGui = player:WaitForChild("PlayerGui")
+local UIS = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "SpeedGuiV4"
+ScreenGui.ResetOnSpawn = false
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.Parent = PlayerGui
+
+-- MAIN FRAME
+local Frame = Instance.new("Frame")
+Frame.Name = "MainFrame"
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(0,0,0)
+Frame.BackgroundTransparency = 0.3
+Frame.BorderSizePixel = 0
+Frame.Size = UDim2.new(0.2,0,0.3,0)
+Frame.Position = UDim2.new(0.02001,0,0.01845,0)
+
+local MainCorner = Instance.new("UICorner")
+MainCorner.Parent = Frame
+
+local MainStroke = Instance.new("UIStroke")
+MainStroke.Thickness = 2
+MainStroke.Color = Color3.fromRGB(38,240,255)
+MainStroke.Parent = Frame
+
+local MainGrad = Instance.new("UIGradient")
+MainGrad.Color = ColorSequence.new{
+	ColorSequenceKeypoint.new(0,Color3.fromRGB(38,240,255)),
+	ColorSequenceKeypoint.new(1,Color3.fromRGB(0,0,0))
+}
+MainGrad.Parent = MainStroke
+
+-- TITLE
+local Title = Instance.new("TextLabel")
+Title.Parent = Frame
+Title.Size = UDim2.new(1.07575,0,0.30755,0)
+Title.BackgroundTransparency = 1
+Title.Text = "Speed Gui V4"
+Title.TextSize = 24
+Title.TextColor3 = Color3.fromRGB(255,255,255)
+Title.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json",Enum.FontWeight.Bold)
+
+-- SPEED BUTTON FRAME
+local SpeedFrame = Instance.new("Frame")
+SpeedFrame.Parent = Frame
+SpeedFrame.Name = "SpeedButtonFrame"
+SpeedFrame.Size = UDim2.new(0.55038,0,0.26654,0)
+SpeedFrame.Position = UDim2.new(0.25017,0,0.34856,0)
+SpeedFrame.BackgroundTransparency = 1
+
+local SpeedCorner = Instance.new("UICorner")
+SpeedCorner.CornerRadius = UDim.new(0,2)
+SpeedCorner.Parent = SpeedFrame
+
+local SpeedStroke = Instance.new("UIStroke")
+SpeedStroke.Thickness = 1.5
+SpeedStroke.Color = Color3.fromRGB(38,240,255)
+SpeedStroke.Parent = SpeedFrame
+
+local SpeedGrad = Instance.new("UIGradient")
+SpeedGrad.Color = ColorSequence.new{
+	ColorSequenceKeypoint.new(0,Color3.fromRGB(38,240,255)),
+	ColorSequenceKeypoint.new(1,Color3.fromRGB(0,0,0))
+}
+SpeedGrad.Parent = SpeedStroke
+
+local SpeedButton = Instance.new("TextButton")
+SpeedButton.Parent = SpeedFrame
+SpeedButton.Size = UDim2.new(1,0,1,0)
+SpeedButton.BackgroundTransparency = 1
+SpeedButton.Text = "Speed: OFF"
+SpeedButton.TextSize = 12
+SpeedButton.TextColor3 = Color3.fromRGB(255,255,255)
+
+-- PLUS
+local PlusFrame = Instance.new("Frame")
+PlusFrame.Parent = Frame
+PlusFrame.Size = UDim2.new(0.23767,0,0.18453,0)
+PlusFrame.Position = UDim2.new(0.25017,0,0.77913,0)
+PlusFrame.BackgroundTransparency = 1
+
+local PlusCorner = Instance.new("UICorner")
+PlusCorner.CornerRadius = UDim.new(0,2)
+PlusCorner.Parent = PlusFrame
+
+local PlusStroke = Instance.new("UIStroke")
+PlusStroke.Thickness = 1.5
+PlusStroke.Color = Color3.fromRGB(38,240,255)
+PlusStroke.Parent = PlusFrame
+
+local PlusGrad = Instance.new("UIGradient")
+PlusGrad.Color = ColorSequence.new{
+	ColorSequenceKeypoint.new(0,Color3.fromRGB(38,240,255)),
+	ColorSequenceKeypoint.new(1,Color3.fromRGB(0,0,0))
+}
+PlusGrad.Parent = PlusStroke
+
+local PlusButton = Instance.new("TextButton")
+PlusButton.Parent = PlusFrame
+PlusButton.Size = UDim2.new(1,0,1,0)
+PlusButton.BackgroundTransparency = 1
+PlusButton.Text = "+"
+PlusButton.TextSize = 15
+PlusButton.TextColor3 = Color3.fromRGB(255,255,255)
+
+-- MINUS
+local MinusFrame = Instance.new("Frame")
+MinusFrame.Parent = Frame
+MinusFrame.Size = UDim2.new(0.23767,0,0.18453,0)
+MinusFrame.Position = UDim2.new(0.56289,0,0.77913,0)
+MinusFrame.BackgroundTransparency = 1
+
+local MinusCorner = Instance.new("UICorner")
+MinusCorner.CornerRadius = UDim.new(0,2)
+MinusCorner.Parent = MinusFrame
+
+local MinusStroke = Instance.new("UIStroke")
+MinusStroke.Thickness = 1.5
+MinusStroke.Color = Color3.fromRGB(38,240,255)
+MinusStroke.Parent = MinusFrame
+
+local MinusGrad = Instance.new("UIGradient")
+MinusGrad.Color = ColorSequence.new{
+	ColorSequenceKeypoint.new(0,Color3.fromRGB(38,240,255)),
+	ColorSequenceKeypoint.new(1,Color3.fromRGB(0,0,0))
+}
+MinusGrad.Parent = MinusStroke
+
+local MinusButton = Instance.new("TextButton")
+MinusButton.Parent = MinusFrame
+MinusButton.Size = UDim2.new(1,0,1,0)
+MinusButton.BackgroundTransparency = 1
+MinusButton.Text = "-"
+MinusButton.TextSize = 15
+MinusButton.TextColor3 = Color3.fromRGB(255,255,255)
+
+-- SPEED DISPLAY
+local SpeedDisplay = Instance.new("Frame")
+SpeedDisplay.Parent = Frame
+SpeedDisplay.Size = UDim2.new(0.53788,0,0.38957,0)
+SpeedDisplay.Position = UDim2.new(2.07645,0,-0.49208,0)
+SpeedDisplay.BackgroundColor3 = Color3.fromRGB(0,0,0)
+SpeedDisplay.BackgroundTransparency = 0.3
+
+local DisplayCorner = Instance.new("UICorner")
+DisplayCorner.Parent = SpeedDisplay
+
+local DisplayStroke = Instance.new("UIStroke")
+DisplayStroke.Thickness = 2
+DisplayStroke.Color = Color3.fromRGB(38,240,255)
+DisplayStroke.Parent = SpeedDisplay
+
+local DisplayGrad = Instance.new("UIGradient")
+DisplayGrad.Color = ColorSequence.new{
+	ColorSequenceKeypoint.new(0,Color3.fromRGB(38,240,255)),
+	ColorSequenceKeypoint.new(1,Color3.fromRGB(0,0,0))
+}
+DisplayGrad.Parent = DisplayStroke
+
+local SpeedLabel = Instance.new("TextLabel")
+SpeedLabel.Parent = SpeedDisplay
+SpeedLabel.Size = UDim2.new(1,0,1,0)
+SpeedLabel.BackgroundTransparency = 1
+SpeedLabel.Text = "Speed: 0"
+SpeedLabel.TextSize = 24
+SpeedLabel.TextColor3 = Color3.fromRGB(255,255,255)
+SpeedLabel.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json",Enum.FontWeight.Bold)
+
+---------------------------------------------------
+-- SPEED SCRIPT
+---------------------------------------------------
+
+local char = player.Character or player.CharacterAdded:Wait()
+local humanoid = char:WaitForChild("Humanoid")
+
+local originalSpeed = humanoid.WalkSpeed
+local currentSpeed = originalSpeed
+local speedOn = false
+
+local function updateText()
+	SpeedLabel.Text = "Speed: "..math.floor(humanoid.WalkSpeed)
+	if speedOn then
+		SpeedButton.Text = "Speed: ON"
+		SpeedButton.TextColor3 = Color3.fromRGB(0,255,0)
+	else
+		SpeedButton.Text = "Speed: OFF"
+		SpeedButton.TextColor3 = Color3.fromRGB(255,0,0)
+	end
+end
+
+local function toggleSpeed()
+	speedOn = not speedOn
+	if speedOn then
+		humanoid.WalkSpeed = currentSpeed
+	else
+		humanoid.WalkSpeed = originalSpeed
+	end
+	updateText()
+end
+
+SpeedButton.MouseButton1Click:Connect(toggleSpeed)
+
+-- TECLA F PC
+UIS.InputBegan:Connect(function(input,gpe)
+	if gpe then return end
+	if input.KeyCode == Enum.KeyCode.F then
+		toggleSpeed()
+	end
+end)
+
+-- PLUS
+PlusButton.MouseButton1Click:Connect(function()
+	if speedOn then
+		currentSpeed += 5
+		humanoid.WalkSpeed = currentSpeed
+	end
+end)
+
+-- MINUS
+MinusButton.MouseButton1Click:Connect(function()
+	if speedOn then
+		currentSpeed -= 5
+		if currentSpeed < 0 then currentSpeed = 0 end
+		humanoid.WalkSpeed = currentSpeed
+	end
+end)
+
+-- UPDATE SPEED LIVE
+RunService.RenderStepped:Connect(updateText)
+
+-- RESPAWN FIX
+player.CharacterAdded:Connect(function(c)
+	char = c
+	humanoid = c:WaitForChild("Humanoid")
+	originalSpeed = humanoid.WalkSpeed
+	currentSpeed = originalSpeed
+	speedOn = false
+end)
+
+---------------------------------------------------
+-- DRAG MAIN FRAME PC + MOBILE
+---------------------------------------------------
+
+local dragging,startPos,startFramePos
+
+Frame.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+		dragging = true
+		startPos = input.Position
+		startFramePos = Frame.Position
+	end
+end)
+
+Frame.InputEnded:Connect(function()
+	dragging = false
+end)
+
+UIS.InputChanged:Connect(function(input)
+	if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+		local delta = input.Position - startPos
+		Frame.Position = UDim2.new(
+			startFramePos.X.Scale, startFramePos.X.Offset + delta.X,
+			startFramePos.Y.Scale, startFramePos.Y.Offset + delta.Y
+		)
+	end
+end)
